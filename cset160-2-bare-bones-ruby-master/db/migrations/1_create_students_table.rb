@@ -6,17 +6,20 @@ db.execute "
   create table students (
     id INTEGER PRIMARY KEY ASC,
     name VARCHAR(255),
-    email VARCHAR(255),
     rate VARCHAR(255)
   );
 "
-
-students = [
-  ["Davian Perez-Silva", "dsperezsilva171@stevenscollege.edu", "Student"],
+headphones = [
+  ["Bose", "4.7/5"],
+  ["SkullCandy", "4.4/5"],
+  ["Beats", "4.1/5"],
+  ["Apple", "4.1/5"],
+  ["HMDX", "4.0/5"],
+  ["JBL", "4.0/5"]
 ]
 
-students.each do |student|
+headphones.each do |student|
   db.execute(
-    "INSERT INTO students (name, email, rate) VALUES (?, ?, ?)", student
+    "INSERT INTO students (name, rate) VALUES (?, ?)", headphones
   )
 end
