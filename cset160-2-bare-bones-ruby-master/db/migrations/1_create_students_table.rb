@@ -7,7 +7,7 @@ db.execute "
     id INTEGER PRIMARY KEY ASC,
     name VARCHAR(255),
     email VARCHAR(255),
-    discord VARCHAR(255)
+    rate VARCHAR(255)
   );
 "
 
@@ -17,6 +17,6 @@ students = [
 
 students.each do |student|
   db.execute(
-    "INSERT INTO students (name, email, discord) VALUES (?, ?, ?)", student
+    "INSERT INTO students (name, email, rate) VALUES (?, ?, ?)", student
   )
 end

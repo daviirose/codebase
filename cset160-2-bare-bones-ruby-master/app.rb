@@ -14,8 +14,8 @@ db = SQLite3::Database.new "./db/dev.db"
 Cuba.define do
   on root do
     student_array = db.execute("SELECT * FROM students")
-    students = student_array.map do |id, name, email, discord|
-      { :id => id, :name => name, :email => email, :discord => discord }
+    students = student_array.map do |id, name, email, rate|
+      { :id => id, :name => name, :email => email, :rate => rate }
     end
     res.write view("index", students: students)
   end
@@ -28,10 +28,10 @@ Cuba.define do
     on "create" do
       name = req.params["name"]
       email = req.params["email"]
-      discord = req.params["discord"]
+      rate = req.params["rate"]
       db.execute(
-        "INSERT INTO students (name, email, discord) VALUES (?, ?, ?)",
-        name, email, discord
+        "INSERT INTO students (name, email, rate) VALUES (?, ?, ?)",
+        name, email, rate
       )
       res.redirect "/"
     end
