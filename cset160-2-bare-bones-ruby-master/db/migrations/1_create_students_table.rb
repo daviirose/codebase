@@ -12,7 +12,7 @@ db.execute "
 "
 
 students = [
-  ["Chad Ostrowski", "ostrowski@stevens.edu", "ProfessorO"],
+  ["Davian Perez-Silva", "dsperezsilva171@stevenscollege.edu", "Student"],
 ]
 
 students.each do |student|
