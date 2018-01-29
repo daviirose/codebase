@@ -17,6 +17,6 @@ students = [
 
 students.each do |student|
   db.execute(
-    "INSERT INTO students (name, email, quality) VALUES (?, ?, ?)", student
+    "INSERT INTO students (name, email, rate) VALUES (?, ?, ?)", student
   )
 end
